@@ -1,0 +1,9 @@
+import requests
+from bs4 import BeautifulSoup4
+
+url = 'https://quotes.toscrape.com/'
+response = requests.get(url)
+soup = BeautifulSoup(response.text,'lxml')
+
+for quote in soup.find_all("span",class_="text"):
+  print(quote)
